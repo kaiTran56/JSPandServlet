@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>JSPandServlet</display-name>
+	
+	<welcome-file-list>
+		<welcome-file>Index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<el-ignored>true</el-ignored>
+		</jsp-property-group>
+	</jsp-config>
+
+
+
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+
+	<context-param>
+		<param-name>name</param-name>
+		<param-value>Quyet</param-value>
+	</context-param>
+	<context-param>
+		<param-name>friend</param-name>
+		<param-value>Ngan</param-value>
+	</context-param>
+
+
+	<servlet>
+		<servlet-name>HelloWorld</servlet-name>
+		<servlet-class>com.Servlet.HelloWorld</servlet-class>
+		<init-param>
+			<param-name>user</param-name>
+			<param-value>quyet</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>gioi</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/quyetDepTrai</url-pattern>
+
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<jsp-file>/WebContent/Login.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/loginHello</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Images</servlet-name>
+		<jsp-file>/WebContent/Images.jsp</jsp-file>
+		<init-param>
+			<param-name>member</param-name>
+			<param-value>Quyet</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Images</servlet-name>
+		<url-pattern>/images</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ImageShow</servlet-name>
+		<servlet-class>com.Servlet.ImageShow</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ImageShow</servlet-name>
+		<url-pattern>/imageShow</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>com.Servlet.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Errors</servlet-name>
+		<jsp-file>/WebContent/Errors.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Errors</servlet-name>
+		<url-pattern>/friendlyErrors</url-pattern>
+	</servlet-mapping>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errorHandle</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errorHandle</location>
+	</error-page>
+	
+	
+	
+	
+	
+	
+	
+	
+	<context-param>
+		<param-name>breed</param-name>
+		<param-value>QuyetTran</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			com.Test.MyContextListener.MyServletContextListener
+		</listener-class>
+	</listener>
+</web-app>
